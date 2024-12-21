@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "0ebbd32e-c10e-41b0-8ac1-9a2b01fe9dbb",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "692181"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test1@example.com\",\n    \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/api/auth/login' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Validate token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoidGVzdDFAZXhhbXBsZS5jb20iLCJpYXQiOjE3MzQ3NDM4MDQsImV4cCI6MTczNDc0NzQwNH0.EjbV-Rk6ol6hPf-O4UXCg2cVQS3VVRQDpDRF9cNcO1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-token-here"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/auth/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"validate"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/auth/validate' \\\n--header 'Authorization: Bearer your-token-here'"
+			},
+			"response": []
+		}
+	]
+}
